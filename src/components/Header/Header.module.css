@@ -1,0 +1,26 @@
+.toggleButton {
+  background-color: white;
+  border: 2px solid #326647;
+  color: black;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition-duration: 0.4s;
+}
+
+.toggleButton:hover {
+  background-color: #326647;
+  color: white;
+}
+
+.toggleButton.red {
+  border: 2px solid red;
+}
+
+.toggleButton.red:hover {
+  background-color: red;
+}
+

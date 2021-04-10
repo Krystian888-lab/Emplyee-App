@@ -1,0 +1,4 @@
+.Employees{
+  display: flex;
+  flex-direction: column;
+}
