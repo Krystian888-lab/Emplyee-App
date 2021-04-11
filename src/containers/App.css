@@ -69,6 +69,11 @@
   color: #326647;
 }
 
+.UpdateButton {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

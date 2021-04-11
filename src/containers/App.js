@@ -1,56 +1,52 @@
-import React, { Component } from 'react';
-import './App.css';
-import Employees from '../components/Employees/Employees';
-import axios from 'axios';
-import EmployeeDetails from '../components/Employees/EmployeeDetails/EmployeeDetails';
+import React, {useEffect} from 'react';
+import styles from './Header.module.css';
+import PropTypes from 'prop-types';
 
-class App extends Component {
+const Header = props => {
 
-  state = {
-    employees: [],
-    selectedEmployee: null
+  useEffect(() => {
+    console.log("Header useEffect");
+    setTimeout(() => {
+      console.log("http request id done");
+    }, 1500);
+
+  }, [props.showArticles]);
+  
+
+  let buttonStyles = [styles.toggleButton];
+
+  if (props.showArticles) {   
+    buttonStyles.push(styles.red);
   }
 
-  componentDidMount(){
-    axios.get('http://dummy.restapiexample.com/api/v1/employees', null)
-    .then(response => {
-      const firstTenEmployees = response.data.slice(0,10);
-      
-    this.setState({employees: firstTenEmployees});
-    });
-  }
+  const futureYear = props.year + 10;
 
-  showSelectedEmployeeHandler = (id) => {
-    console.log("Employee nr: " + id);
-    axios.get("http://dummy.restapiexample.com/api/v1/employee/" + id).then(
-    response => {
-      this.setState({
-        selectedEmployee: response.data
-      })
-    }
-    );
-  }
-
-  render() {
-
-    let selectedEmployee = null;
-
-    if(this.state.selectedEmployee !== null){
-      selectedEmployee = <EmployeeDetails 
-      name={this.state.selectedEmployee.employee_name}
-      salary={this.state.selectedEmployee.employee_salary}
-      age={this.state.selectedEmployee.employee_age}
-      /> 
-    }
-
-    return (
-      <div className='App'>
-        {selectedEmployee}
-        <h1>Employees</h1>
-        <Employees employees={this.state.employees} showSlectedEmployee={this.showSelectedEmployeeHandler}/>
+  console.log("Header return");
+  return (
+    <div>
+      <h1>Article app</h1>
+      <h2>Future year: {futureYear }</h2>
+        <button className={buttonStyles.join(' ')}
+        onClick={props.toggleArticles}>Toggle articles </button>
       </div>
-    );
-  }
+  )
+
 }
 
-export default App;
+Header.propTypes = {
+  year: PropTypes.number,
+  propsArrays: PropTypes.array,
+  propsBool: PropTypes.bool,
+  propsFunc: PropTypes.func,
+  propsEnum: PropTypes.oneOf(['Menu', 'Help', 'Contact']),
+  propsStringOrNumber: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  propsObject: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number
+  })
+}
+
+export default React.memo(Header);
