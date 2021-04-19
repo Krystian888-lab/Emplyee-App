@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './Employees.module.css';
 import Employee from './Employee/Employee';
 
-class Employees extends Component {
-    render() {
+const Employees = ({employees, showSelectedEmployee}) => {
 
-        const employees = this.props.employees.map((employee, index) => {
-            return (<Employee key={employee.id} name={employee.employee_name} showSelectedEmployee={this.props.showSelectedEmployee} id={employee.id}/>);
+        // Tu tworzeni są pracownicy, przerabiani są pracownicy z tablicy na obiekty javascript-owi
+        console.log(employees);
+        const employees = employees.map((employee, index) => {
+            //zwracany komponent Employee
+            return (<Employee key={employee.id} name={employee.employee_name} showSelectedEmployee={showSelectedEmployee} id={employee.id}/>);
+            // do pojedyńczego  komponentu przekazywana dalej jest metoda showEmployeeHandler a nazwa propsa to: 'showSelectedEmployee'
         });
 
-        return (<div className={styles.Employees}>
-            {employees}
+        //Tu znajdują się pracownicy     
+        return (<div className={styles.Employees}> 
+            {employees} 
         </div>)
     }
-}
 
 export default Employees;

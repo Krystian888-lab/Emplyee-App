@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styles from './EmployeeDetails.module.css'
 
 
-class EmployeeDetails extends Component {
-
-    render(){
+const EmployeeDetails = ({name,salary,age}) => {
 
       return (
-        <div className={styles.EmployeeDetails}>
-          <div className={styles.EmployeeDetails}>Name: {this.props.name}</div>
-          <div className={styles.EmployeeDetails}>Salary: {this.props.salary}</div>
-          <div className={styles.EmployeeDetails}>Age: {this.props.age}</div>
+        <div className={styles.EmployeeDetailsDiv}>
+          <div className={styles.EmployeeDetailsDiv}>
+            Name: {name}</div>
+          <div className={styles.EmployeeDetailsDiv}>
+            Salary: {salary}</div>
+          <div className={styles.EmployeeDetailsDiv}>
+            Age: {age}</div>
         </div>
       )
     }
-}
 
 export default EmployeeDetails;

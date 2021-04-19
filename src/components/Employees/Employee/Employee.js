@@ -1,20 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './Employee.module.css';
 
+const Employee = ({name}) => {
 
-
-class Employee extends Component {
-
-
-  render() {
-    
+    console.log(name)
     return (
-      <div className={styles.Employee} onClick={()=> {this.props.showSelectedEmployee(this.props.id)}}>Name: {this.props.name}</div>
+      <div className={styles.Employee} onClick={()=> showSelectedEmployee(id)}>Name: {name}</div>
       );
   }
-
-}
-
-
 
 export default Employee;
