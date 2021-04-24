@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './EmployeeDetails.module.css'
+import styles from './EmployeeDetails.module.css';
 
 
-const EmployeeDetails = ({name,salary,age}) => {
+const EmployeeDetails = ({name, salary, age}) => {
 
       return (
         <div className={styles.EmployeeDetailsDiv}>

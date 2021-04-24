@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .App-logo {
@@ -28,50 +26,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-.Red-color{
-  color: red;
-}
-
-.FormContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.FormLabel {
-  font-weight: bold;
-  margin: auto;
-  margin-bottom: 2px;
-}
-
-.FormElement {
-  margin: auto;
-  margin-bottom: 5px;;
-  width: 400px;
-}
-
-.FormButton {
-  margin: auto;
-  margin-top: 10px;
-  min-width: 150px;
-}
-
-.OrangeArticles {
-  color: #e46600;
-}
-
-.OneArticle {
-  font-weight: bold;
-}
-
-.GreenArticles {
-  color: #326647;
-}
-
-.UpdateButton {
-  margin: auto;
-  margin-bottom: 10px;
 }
 
 @keyframes App-logo-spin {
