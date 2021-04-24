@@ -15,47 +15,40 @@ const App = () => {
     // Na adres puszczam żądanie GET aby dostać listę z pracownikami, która będzie zapisywana w stacie App, która będzie przekazywana do komponentu <Employees/>, najpierw komponenty się wyrenderują a potem zostanie puszczone zapytanie HTTP, po otrzymaniu odpowiedzi asynchronicznie zaktualizuje się nasz stan
     fetch('http://dummy.restapiexample.com/api/v1/employees', {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-      })
-    })
-    .then(res => {
-      res.json()
-    })
-    .then(res => {
-      console.log(res);
-      console.log(res.data.data);
+      // headers: {
+      //   'Content-Type': 'application/json'
+      // },
+      // body: JSON.stringify({
 
-      const employeeArray = res.data.data;
+      // })
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res.data);
+      console.log(res.status);
+
+      const employeeArray = res.data;
+      console.log(employeeArray, "employeeArray")
       // W stałek employees zapisuje to co nam zwraca ta metoda
-      setEmployees({employees: employeeArray});
+      setEmployees(employeeArray);
       // Teraz pracownicy z  początkowego stanu tablicy 'useState' employees -> zostają przypsiani do stałej employeeArray
     })
     .catch(error => console.log(error))
-  })
+  }, []);
 
   // Metoda która będzie się wywoływała po wciśnięciu jednego pracownika (wciśnięciu jednego przycisku), przekazywane jest do niej id bo endpoint wymaga id
   const showSelectedEmployeeHandler = (id) => {
     console.log("Employee nr: " + id);
-    fetch("http://dummy.restapiexample.com/api/v1/employee/" + id , {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-      })
+    fetch("http://dummy.restapiexample.com/api/v1/employee/" + id)
+    .then(res => {
+      return res.json()
     })
     .then(res => {
-      res.json()
-    })
-    .then(res => {
-      // po przekazaniu argumentu z żądania metoda then określa co ma się stać kiedy otrzyma odpowiedź, która po otrzymaniu przypiszemy do funkcji w stacie 
-      setSelectedEmployee({
-        selectedEmployee: res.data.data
+      // po przekazaniu argumentu z żądania metoda then określa co ma się stać kiedy otrzyma odpowiedź, która po otrzymaniu przypiszemy do funkcji w stacie
+      console.log(res, "re po id");
+        setSelectedEmployee(res.data
         //Tutaj zaszeregowane będą dane dotyczą imienia, wieku itd.
-      });
+      );
     });
   }
 
@@ -70,23 +63,22 @@ const App = () => {
     fetch("http://dummy.restapiexample.com/api/v1/create",
     {
       method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: {"name":"test","salary":"123","age":"23"},//Dane które będziemy zapisywać,
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      body: employeeToSave//Dane które będziemy zapisywać,
       // Jak powinno wyglądać ciało obiektu JavaScriptowego
     }
       ).then(response => {
-      console.log(response);
-    });
+      return response.json();
+    })
+    .then(res => console.log(res));
   }
 
   const deleteEmployeeHandler = () => {
     // Będzie wysyłało zapytanie http z id na sztywno wpisanym w kodzie
     const id = 2; // Stała id obiektu do usunięcia
-    fetch("http://dummy.restapiexample.com/api/v1/delete/" + id, {
-      method: "DELETE",
-    })  
+    fetch("http://dummy.restapiexample.com/api/v1/delete/" + id)  
     .then(r => r.json())
     .then(
       res => {
@@ -97,7 +89,7 @@ const App = () => {
   // Sprawdzenie aktualnej wartości selectedEmployee, jeżeli będzie różna od zera , to będzie tworzony komponent EmplyeeDetails
   if(selectedEmployee !== null){ 
     return (
-    selectedEmployee = <EmployeeDetails 
+    <EmployeeDetails 
     name={selectedEmployee.employee_name}
     salary={selectedEmployee.employee_salary}
     age={selectedEmployee.employee_age}
