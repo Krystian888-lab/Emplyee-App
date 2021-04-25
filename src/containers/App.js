@@ -1,7 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import './App.css';
 import Employees from '../components/Employees/Employees';
-// import axios from 'axios';
 import EmployeeDetails from '../components/Employees/EmployeeDetails/EmployeeDetails';
 // Pobieranie danych z komponetu Reacta wymaga zastosaowania zaczepów useState, useEffect
 
@@ -13,6 +12,7 @@ const App = () => {
   // Zaczep useEffect służy do wykonania żądania
   useEffect(()=> {   
     // Na adres puszczam żądanie GET aby dostać listę z pracownikami, która będzie zapisywana w stacie App, która będzie przekazywana do komponentu <Employees/>, najpierw komponenty się wyrenderują a potem zostanie puszczone zapytanie HTTP, po otrzymaniu odpowiedzi asynchronicznie zaktualizuje się nasz stan
+    // (fetch = sprowadzać)
     fetch('http://dummy.restapiexample.com/api/v1/employees', {
       method: 'GET',
       // headers: {
@@ -29,7 +29,7 @@ const App = () => {
 
       const employeeArray = res.data;
       console.log(employeeArray, "employeeArray")
-      // W stałek employees zapisuje to co nam zwraca ta metoda
+      // W stałej employees zapisuje to co nam zwraca ta metoda
       setEmployees(employeeArray);
       // Teraz pracownicy z  początkowego stanu tablicy 'useState' employees -> zostają przypsiani do stałej employeeArray
     })
@@ -45,7 +45,7 @@ const App = () => {
     })
     .then(res => {
       // po przekazaniu argumentu z żądania metoda then określa co ma się stać kiedy otrzyma odpowiedź, która po otrzymaniu przypiszemy do funkcji w stacie
-      console.log(res, "re po id");
+      console.log(res, "res po przekazaniu id");
         setSelectedEmployee(res.data
         //Tutaj zaszeregowane będą dane dotyczą imienia, wieku itd.
       );
@@ -68,9 +68,9 @@ const App = () => {
       // },
       body: employeeToSave//Dane które będziemy zapisywać,
       // Jak powinno wyglądać ciało obiektu JavaScriptowego
-    }
-      ).then(response => {
-      return response.json();
+    })
+    .then(res => {
+      return res.json();
     })
     .then(res => console.log(res));
   }
@@ -78,13 +78,12 @@ const App = () => {
   const deleteEmployeeHandler = () => {
     // Będzie wysyłało zapytanie http z id na sztywno wpisanym w kodzie
     const id = 2; // Stała id obiektu do usunięcia
-    fetch("http://dummy.restapiexample.com/api/v1/delete/" + id)  
-    .then(r => r.json())
-    .then(
-      res => {
-        console.log(res);
-      })
-      .catch(err => console.log(err))
+    fetch("http://dummy.restapiexample.com/api/v1/delete/" + id, {
+      method: 'DELETE'
+    })  
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
   }
   // Sprawdzenie aktualnej wartości selectedEmployee, jeżeli będzie różna od zera , to będzie tworzony komponent EmplyeeDetails
   if(selectedEmployee !== null){ 
@@ -95,8 +94,8 @@ const App = () => {
     age={selectedEmployee.employee_age}
     /> )
   }
-  return (
 
+  return (
 // W <Employees/> odwołuje się do stat-a employess
 // Dopóki żadne pracownik nie zostanie wybrany będzie wyświetlany null ze stat-a
       // "saveEmployeeHandler" Przycisk który na sztywno wpisuje dane pracownika w kod
