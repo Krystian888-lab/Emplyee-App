@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './EmployeeDetails.module.css';
+import styles from './EmployeeDetails.module.scss';
 
 
 const EmployeeDetails = ({name, salary, age}) => {

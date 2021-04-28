@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import './App.css';
+import './App.scss';
 import Employees from '../components/Employees/Employees';
 import EmployeeDetails from '../components/Employees/EmployeeDetails/EmployeeDetails';
 // Pobieranie danych z komponetu Reacta wymaga zastosaowania zaczepów useState, useEffect

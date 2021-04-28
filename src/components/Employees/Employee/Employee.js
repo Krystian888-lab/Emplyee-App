@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Employee.module.css';
+import styles from './Employee.module.scss';
 
 const Employee = ({name,id,showSelectedEmployee}) => {
 
