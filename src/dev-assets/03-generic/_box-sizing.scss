@@ -1,0 +1,11 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+// Dane formatowanie nada odpowiednie traktowanie odpowienich elementów np kolumny po dodaniu padningów nie będą zwiększały swojej szerokości, wyjściowa zawartość elementu to padding obramowanie bez marginesów na zewnątrz
+
+// Identyczna wartość box-sizing dla wszystkich elementów strony, box-sizing definuje jak ma się zachowywać model pudełkowy (marginesy elementu, padingi oraz obramowanie), 
+// border-box - padinngi i obramowania elementu niewpływają na obramowania szerokości
+
+// Pełni kluczą rolę w układzie kolumn na stronie
+
+// * uniwersalny selektor dla gwiazdki i pseudoelementów

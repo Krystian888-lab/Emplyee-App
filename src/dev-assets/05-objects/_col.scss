@@ -1,0 +1,87 @@
+.o-col {
+  width: 100%; // wszystkie kolumny na małych urządzeniach zaczynają od 100%
+  padding-left: $gutter; // padding po lewej ~15px
+  padding-right: $gutter;
+  
+    //flex-flow: column-reverse wrap;
+
+    border: none;
+    border-radius: $border-radius;
+    display: inline-block;
+    font-size: $font-size-5;
+    font-weight: 700;
+    line-height: $line-height-base;
+    padding: .75rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all .25s ease-in-out;
+    width: $grid-base * 38;
+
+    cursor: pointer;
+    box-shadow: 0 1px 1px #bbbbbb;
+
+    margin-top: $gutter;
+    margin-bottom: $gutter;  
+    margin-left:$gutter*2;
+    margin-right: $gutter*2;
+  // margin-top: 10px;
+
+  background-color: $white;
+  color: $blue-text;
+
+  &:hover {
+      background-color: darken($white, 15%);
+      color: $blue-text;
+  }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+  //Zapytanie o media aby uzyskać modyfikacje bazowego zachowania
+  //powójna kreska wprowadza modyfikator '--', medium -> średnie urządzenia stąd literka 'm', natomiast liczba '50' pozwoli uzyskać dwie kolumny obok siebie
+  &--md25 { 
+    @include medium-up {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  &--md33 { 
+    @include medium-up {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+    }
+  }
+
+  &--md50 { 
+    @include medium-up {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  // Urządzenia duże 'lg' 
+  &--lg25 { 
+    @include large-up {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  &--lg33 { 
+    @include large-up {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+    }
+  }
+
+  &--lg50 { 
+    @include large-up {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
+
+// o-col--md50 klasa elementu zewntęrznego wraz z klasą elementu wewnętrznego

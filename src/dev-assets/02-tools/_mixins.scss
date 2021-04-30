@@ -4,13 +4,16 @@
 @mixin medium-up {
   // Deklaracja Media Queries, w parametrze określone kryteria 
   // Zostaną nadpisane deklaracje nowymi wartościami
+  // Wprowadzenie zmiennej dynamicznie z pliku '_variables' z podpunktu breakpoints, zastosowanie składni wprowadzenie zmiennej w postaci stringu
+  // @content (add-content') -> zastępuje deklaracje, pozwala wprowadzić dowolne deklaracje
   @media (min-width: #{$bp-medium}) {
-      @content
-      
+    @content
+    
   }
 }
 
 // Od duzych w gore
+// Drugi break-point dla urządzeń dużych
 @mixin large-up {
   @media (min-width: #{$bp-large}) {
       @content

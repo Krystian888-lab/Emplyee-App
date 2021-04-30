@@ -1,0 +1,19 @@
+// Przedrostek 'o' (object)
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter; // podstawa siatki ~15px
+  padding-right: $gutter; // podstawa siatki ~15px
+  width: 100%;
+
+  // import mixins z '_tools' 
+  // dla urządzeń średnich
+  @include medium-up {
+      max-width: 540px;
+  }
+  // // dla urządzeń dużych
+  @include large-up {
+      max-width: 940px;
+  }
+}

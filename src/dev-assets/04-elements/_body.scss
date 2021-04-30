@@ -1,0 +1,11 @@
+// Selektory globalne bazujące na elemencie html
+// Konwencja sortowania alfabetycznego układu poszczególnych lini, wprowadzenie porządku
+body {
+  background-color: $white; 
+  color: $gray-dark; 
+  font-family: 'Montserrat', sans-serif; // bezszeryfowy
+  font-size: $font-size-4; // 1rem (16px)
+  margin: 0; // reset
+  padding: 0; // reset 
+
+}
