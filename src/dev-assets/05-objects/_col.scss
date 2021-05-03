@@ -3,39 +3,6 @@
   padding-left: $gutter; // padding po lewej ~15px
   padding-right: $gutter;
 
-    // border: none;
-    // border-radius: $border-radius;
-    // display: inline-block;
-    // font-size: $font-size-5;
-    // font-weight: 700;
-    // line-height: $line-height-base;
-    // padding: .75rem 0;
-    // text-align: center;
-    // text-transform: uppercase;
-    // transition: all .25s ease-in-out;
-    // width: $grid-base * 38;
-
-    // cursor: pointer;
-    // box-shadow: 0 1px 1px #bbbbbb;
-
-    // margin-top: $gutter;
-    // margin-bottom: $gutter;  
-    // margin-left:$gutter*2;
-    // margin-right: $gutter*2;
-  // margin-top: 10px;
-
-  background-color: $white;
-  color: $blue-text;
-
-  &:hover {
-      background-color: darken($white, 15%);
-      color: $blue-text;
-  }
-
-    &:hover {
-        text-decoration: none;
-    }
-
   //Zapytanie o media aby uzyskać modyfikacje bazowego zachowania
   //powójna kreska wprowadza modyfikator '--', medium -> średnie urządzenia stąd literka 'm', natomiast liczba '50' pozwoli uzyskać dwie kolumny obok siebie
   // &--md25 { 

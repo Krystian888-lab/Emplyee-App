@@ -10,10 +10,10 @@
   // import mixins z '_tools' 
   // dla urządzeń średnich
   @include medium-up {
-      max-width: 540px;
+      max-width: 740px;
   }
   // // dla urządzeń dużych
   @include large-up {
-      max-width: 940px;
+      max-width: 1140px;
   }
 }

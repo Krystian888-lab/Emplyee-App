@@ -8,7 +8,10 @@ const Employee = ({name,id,showSelectedEmployee}) => {
     return (
       // Tu w propsie potrzeba przekazać 'id'
       // <div className={styles.Employee} onClick={()=> showSelectedEmployee(id)}>Name: {name}</div>
-      <div className='c-btn c-btn--light' onClick={()=> showSelectedEmployee(id)}>Name: {name}</div>
+      
+      <div className='c-btn c-btn--light' onClick={()=> showSelectedEmployee(id)}>Name: {name}
+      </div>
+      
       );
   }
 

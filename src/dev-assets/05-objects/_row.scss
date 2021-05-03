@@ -1,16 +1,18 @@
 .o-row {
   // na małych urządzeniach kolumna
   display: flex; // wprowadza kontener flexboxa
-  flex-direction: column; // domyślna zawartość w formie kolumny, każdy element wiersza zostanie umieszczony jeden nad drugim
+  flex-direction: column;
   flex-wrap: wrap;
+  text-align: center;
   // dodanie ujemnych marginesów
   margin-left: -$gutter; // aby zrekompensować padding dwóch skarjnych kolumn w wwierszu
   margin-right: -$gutter; // ~ '-15px' w wyjściowym css
-
+  
   // mixin umożliwi umiszczenie jednej kolumny obok drugiej w odi poziomej
   @include medium-up {
     // na urządzeniach średich i większych wiersz
     flex-direction: row;
+    ; // domyślna zawartość w formie kolumny, każdy element wiersza zostanie umieszczony jeden nad drugim
 
   }
 }

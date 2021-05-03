@@ -105,6 +105,7 @@ const App = () => {
         
         {selectedEmployee}
         <h1 className='c-heading c-heading--level1 c-heading--white'>Employees</h1>
+
         
         <Employees employees={employees} showSelectedEmployee={showSelectedEmployeeHandler}/>
         <div className='t-post-list'>
@@ -113,7 +114,7 @@ const App = () => {
         <button onClick={deleteEmployeeHandler} className='c-btn c-btn--outline'>Delete Employee</button>
           </div>
           </div>
-          
+        
         </header>
         // W propsach przekazywana jest metoda showSelectedEmployeeHandler nazwa propsa to: 'showSelectedEmployee' 
         // metoda showSelectedEmployeeHandler przekazywana jest do komponentu employees
