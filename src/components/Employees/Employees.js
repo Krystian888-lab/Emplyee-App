@@ -1,5 +1,8 @@
 import React from 'react';
-import styles from './Employees.module.css';
+// import styles from './Employees.module.scss';
+import '../../dev-assets/style.scss'
+
+
 import Employee from './Employee/Employee';
 
 const Employees = ({showSelectedEmployee, employees}) => {
@@ -14,9 +17,12 @@ const Employees = ({showSelectedEmployee, employees}) => {
         });
 
         //Tu znajdują się pracownicy     
-        return (<div className={styles.Employees}> 
-            {people} 
-        </div>)
+        return (
+            <div className='o-row'>
+                <div className='o-col o-col--md50 o-col--lg25'> 
+                {people} 
+                </div>
+            </div>)
     }
 
 export default Employees;

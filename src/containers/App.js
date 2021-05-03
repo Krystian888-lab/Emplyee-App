@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import './App.scss';
+import '../dev-assets/style.scss';
 import Employees from '../components/Employees/Employees';
 import EmployeeDetails from '../components/Employees/EmployeeDetails/EmployeeDetails';
 // Pobieranie danych z komponetu Reacta wymaga zastosaowania zaczepów useState, useEffect
@@ -32,6 +32,7 @@ const App = () => {
       // W stałej employees zapisuje to co nam zwraca ta metoda
       setEmployees(employeeArray);
       // Teraz pracownicy z  początkowego stanu tablicy 'useState' employees -> zostają przypsiani do stałej employeeArray
+
     })
     .catch(error => console.log(error))
   }, []);
@@ -99,13 +100,21 @@ const App = () => {
 // W <Employees/> odwołuje się do stat-a employess
 // Dopóki żadne pracownik nie zostanie wybrany będzie wyświetlany null ze stat-a
       // "saveEmployeeHandler" Przycisk który na sztywno wpisuje dane pracownika w kod
-      <div className='App'> 
+      <header className='t-site-header'>
+      <div className='o-container'>
+        
         {selectedEmployee}
-        <h1>Employees</h1>
+        <h1 className='c-heading c-heading--level1 c-heading--white'>Employees</h1>
+        
         <Employees employees={employees} showSelectedEmployee={showSelectedEmployeeHandler}/>
-        <button onClick={saveEmployeeHandler} className="UpdateButton">Save Employee</button>
-        <button onClick={deleteEmployeeHandler} className="UpdateButton">Delete Employee</button>
-      </div>
+        <div className='t-post-list'>
+        <button onClick={saveEmployeeHandler} className='c-btn c-btn--accent'>Save Employee</button>
+        <span className="t-post-list__divider">OR</span>
+        <button onClick={deleteEmployeeHandler} className='c-btn c-btn--outline'>Delete Employee</button>
+          </div>
+          </div>
+          
+        </header>
         // W propsach przekazywana jest metoda showSelectedEmployeeHandler nazwa propsa to: 'showSelectedEmployee' 
         // metoda showSelectedEmployeeHandler przekazywana jest do komponentu employees
     );

@@ -9,11 +9,29 @@
   text-align: center;
   text-transform: uppercase;
   transition: all .25s ease-in-out;
-  width: $grid-base * 22;
+  width: $grid-base * 38;
+
+  cursor: pointer;
+  box-shadow: 0 1px 1px #bbbbbb;
+
+  margin-top: $gutter;
+    margin-bottom: $gutter;  
+    margin-left:$gutter*2;
+    margin-right: $gutter*2;
 
   &:hover {
       text-decoration: none;
   }
+
+  &--light {
+    background-color: $white;
+    color: $blue-text;
+
+    &:hover {
+        background-color: darken($white, 15%);
+        color: $blue-text;
+    }
+}
 
   &--accent {
     background-color: $green;
