@@ -19,17 +19,12 @@ const Employees = ({showSelectedEmployee, employees}) => {
         })
     }
         </ul>
-    // do pojedyńczego  komponentu przekazywana dalej jest metoda showEmployeeHandler a nazwa propsa to: 'showSelectedEmployee'
-
+        // do pojedyńczego  komponentu przekazywana dalej jest metoda showEmployeeHandler a nazwa propsa to: 'showSelectedEmployee'
         //Tu znajdują się pracownicy     
         return (
-            // <div className='o-row'>
                 <div className='o-col'> 
-                <>
                 {people} 
-                </>
-                </div>
-                // </div>
+                </div>             
             )
     }
 

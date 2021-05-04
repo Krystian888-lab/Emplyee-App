@@ -1,0 +1,32 @@
+.t-promoted {
+  background: url('../../images/header-tlo.jpg') 0 0 no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  
+  
+  &__btn {
+    display: flex;
+    
+    background-color: transparent;
+    border: 2px solid $white;
+    color: $white;
+    
+    box-shadow: 0 3px 4px #bbbbbb;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    
+    padding: $grid-base * 8;
+  
+  &:hover {
+      color: darken($white, 15%);
+      border: 2px solid darken($white, 15%);
+  }
+}
+
+  &__content {
+    margin: auto;
+  }
+}
+  

@@ -32,7 +32,6 @@ const App = () => {
       // W stałej employees zapisuje to co nam zwraca ta metoda
       setEmployees(employeeArray);
       // Teraz pracownicy z  początkowego stanu tablicy 'useState' employees -> zostają przypsiani do stałej employeeArray
-
     })
     .catch(error => console.log(error))
   }, []);
@@ -102,11 +101,9 @@ const App = () => {
       // "saveEmployeeHandler" Przycisk który na sztywno wpisuje dane pracownika w kod
       <header className='t-site-header'>
       <div className='o-container'>
-        
         {selectedEmployee}
         <h1 className='c-heading c-heading--level1 c-heading--white'>Employees</h1>
-
-        
+    
         <Employees employees={employees} showSelectedEmployee={showSelectedEmployeeHandler}/>
         <div className='t-post-list'>
         <button onClick={saveEmployeeHandler} className='c-btn c-btn--accent'>Save Employee</button>
@@ -114,7 +111,6 @@ const App = () => {
         <button onClick={deleteEmployeeHandler} className='c-btn c-btn--outline'>Delete Employee</button>
           </div>
           </div>
-        
         </header>
         // W propsach przekazywana jest metoda showSelectedEmployeeHandler nazwa propsa to: 'showSelectedEmployee' 
         // metoda showSelectedEmployeeHandler przekazywana jest do komponentu employees

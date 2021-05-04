@@ -1,18 +1,22 @@
 import React from 'react';
-import styles from './EmployeeDetails.module.scss';
+import '../../../dev-assets/style.scss'
+
+// import styles from './EmployeeDetails.module.scss';
 
 
 const EmployeeDetails = ({name, salary, age}) => {
 
       return (
-        <div className={styles.EmployeeDetailsDiv}>
-          <div className={styles.EmployeeDetailsDiv}>
+        <section className='t-promoted'>
+        <div className='t-promoted__btn'>
+          <div className='t-promoted__content'>
             Name: {name}</div>
-          <div className={styles.EmployeeDetailsDiv}>
+          <div className='t-promoted__content'>
             Salary: {salary}</div>
-          <div className={styles.EmployeeDetailsDiv}>
+          <div className='t-promoted__content'>
             Age: {age}</div>
         </div>
+        </section>
       )
     }
 
