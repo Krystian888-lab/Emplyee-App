@@ -99,7 +99,7 @@ const App = () => {
 // W <Employees/> odwołuje się do stat-a employess
 // Dopóki żadne pracownik nie zostanie wybrany będzie wyświetlany null ze stat-a
       // "saveEmployeeHandler" Przycisk który na sztywno wpisuje dane pracownika w kod
-      <header className='t-site-header'>
+      <main className='t-site-header'>
       <div className='o-container'>
         {selectedEmployee}
         <h1 className='c-heading c-heading--level1 c-heading--white'>Employees</h1>
@@ -111,7 +111,7 @@ const App = () => {
         <button onClick={deleteEmployeeHandler} className='c-btn c-btn--outline'>Delete Employee</button>
           </div>
           </div>
-        </header>
+        </main>
         // W propsach przekazywana jest metoda showSelectedEmployeeHandler nazwa propsa to: 'showSelectedEmployee' 
         // metoda showSelectedEmployeeHandler przekazywana jest do komponentu employees
     );

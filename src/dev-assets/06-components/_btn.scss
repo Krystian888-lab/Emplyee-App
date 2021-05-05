@@ -1,23 +1,23 @@
 .c-btn {
   border: none;
   border-radius: $border-radius;
+  // box-shadow: 0 1px 1px #bbbbbb;
+  cursor: pointer;
   display: inline-block;
   font-size: $font-size-5;
   font-weight: 700;
   line-height: $line-height-base;
+
+  margin-bottom: $grid-base*1.5;  
+  margin-left:$gutter*2;
+  margin-right: $gutter*2;
+  margin-top: $grid-base*1.5;
+
   padding: .75rem 0;
   text-align: center;
   text-transform: uppercase;
   transition: all .25s ease-in-out;
   width: $grid-base * 28;
-
-  cursor: pointer;
-  box-shadow: 0 1px 1px #bbbbbb;
-
-  margin-top: $gutter;
-    margin-bottom: $gutter;  
-    margin-left:$gutter*2;
-    margin-right: $gutter*2;
 
   &:hover {
       text-decoration: none;
@@ -31,7 +31,7 @@
         background-color: darken($white, 15%);
         color: $blue-text;
     }
-}
+  }
 
   &--accent {
     background-color: $green;
@@ -53,6 +53,4 @@
         border: 2px solid darken($white, 15%);
     }
   }
-
-  
 }

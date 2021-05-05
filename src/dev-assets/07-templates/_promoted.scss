@@ -1,27 +1,30 @@
 .t-promoted {
-  background: url('../../images/header-tlo.jpg') 0 0 no-repeat;
-  height: 100vh;
-  display: flex;
   align-items: center;
+  background: url('../../images/header-tlo.jpg') 0 0 no-repeat;
+  display: flex;
+  height: 100vh;
   
   
   &__btn {
-    display: flex;
-    
     background-color: transparent;
-    border: 2px solid $white;
+    border-radius: $border-radius;
+    // box-shadow: 1px 1px 1px 2px #bbbbbb;
+    color: darken($white, 15%);
+    border: 1px solid darken($white, 15%);
     color: $white;
-    
-    box-shadow: 0 3px 4px #bbbbbb;
     flex-direction: column;
-    align-items: center;
+    font-size: $font-size-3;
+    font-weight: 700;
+    line-height: $line-height-lg;
     margin: auto;
-    
-    padding: $grid-base * 8;
-  
+    padding: 4rem 6rem ;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all .25s ease-in-out;
+
   &:hover {
       color: darken($white, 15%);
-      border: 2px solid darken($white, 15%);
+      border: 3px solid darken($white, 15%);
   }
 }
 
@@ -29,4 +32,3 @@
     margin: auto;
   }
 }
-  
