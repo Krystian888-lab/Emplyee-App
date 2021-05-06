@@ -1,3 +1,4 @@
+// import React, {useState, useEffect } from 'react';
 import React from 'react';
 import '../../../dev-assets/style.scss'
 
@@ -5,7 +6,7 @@ import '../../../dev-assets/style.scss'
 
 
 const EmployeeDetails = ({name, salary, age}) => {
-
+  
       return (
         <section className='t-promoted'>
         <div className='t-promoted__btn'>
@@ -16,6 +17,7 @@ const EmployeeDetails = ({name, salary, age}) => {
           <div className='t-promoted__content'>
             Age: {age}</div>
         </div>
+        {/* <button onClick={App} className='c-btn c-btn--outline'>Reset</button> */}
         </section>
       )
     }

@@ -7,35 +7,44 @@ import EmployeeDetails from '../components/Employees/EmployeeDetails/EmployeeDet
 const App = () => {
   // Zaczep useState służy do przechowywania odpowiedzi w danych 
   const [employees, setEmployees] = useState([]);
-  const [selectedEmployee, setSelectedEmployee] = useState(null); // w SelectedEmployee przechowywana jest informacja o jednym konkretnym pracowniku, dopóki żaden nie zostanie wybrany będzie wyświetlany 'null'
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+
+  const [error, setError] = useState();
+  
+  // w SelectedEmployee przechowywana jest informacja o jednym konkretnym pracowniku, dopóki żaden nie zostanie wybrany będzie wyświetlany 'null'
 
   // Zaczep useEffect służy do wykonania żądania
   useEffect(()=> {   
     // Na adres puszczam żądanie GET aby dostać listę z pracownikami, która będzie zapisywana w stacie App, która będzie przekazywana do komponentu <Employees/>, najpierw komponenty się wyrenderują a potem zostanie puszczone zapytanie HTTP, po otrzymaniu odpowiedzi asynchronicznie zaktualizuje się nasz stan
     // (fetch = sprowadzać)
-    fetch('http://dummy.restapiexample.com/api/v1/employees', {
-      method: 'GET',
-      // headers: {
-      //   'Content-Type': 'application/json'
-      // },
-      // body: JSON.stringify({
+    fetch
+      ('http://dummy.restapiexample.com/api/v1/employees', {
+        method: 'GET',
+        // headers: {
+          //   'Content-Type': 'application/json'
+          // },
+          // body: JSON.stringify({
+            
+            // })
+          })
+          .then(res => res.json())
+          .then(res => {
+            console.log(res.data);
+            console.log(res.status);
+            
+            const employeeArray = res.data;
+            console.log(employeeArray, "employeeArray")
+            // W stałej employees zapisuje to co nam zwraca ta metoda
+            setEmployees(employeeArray);
+            // Teraz pracownicy z  początkowego stanu tablicy 'useState' employees -> zostają przypsiani do stałej employeeArray
+          })
+          .catch(setError)
+          .catch(error => console.log(error))
+        
+        }, []);
 
-      // })
-    })
-    .then(res => res.json())
-    .then(res => {
-      console.log(res.data);
-      console.log(res.status);
-
-      const employeeArray = res.data;
-      console.log(employeeArray, "employeeArray")
-      // W stałej employees zapisuje to co nam zwraca ta metoda
-      setEmployees(employeeArray);
-      // Teraz pracownicy z  początkowego stanu tablicy 'useState' employees -> zostają przypsiani do stałej employeeArray
-    })
-    .catch(error => console.log(error))
-  }, []);
-
+        if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
+        
   // Metoda która będzie się wywoływała po wciśnięciu jednego pracownika (wciśnięciu jednego przycisku), przekazywane jest do niej id bo endpoint wymaga id
   const showSelectedEmployeeHandler = (id) => {
     console.log("Employee nr: " + id);
@@ -100,17 +109,17 @@ const App = () => {
 // Dopóki żadne pracownik nie zostanie wybrany będzie wyświetlany null ze stat-a
       // "saveEmployeeHandler" Przycisk który na sztywno wpisuje dane pracownika w kod
       <main className='t-site-header'>
-      <div className='o-container'>
+        <section className='o-container'>
         {selectedEmployee}
-        <h1 className='c-heading c-heading--level1 c-heading--white'>Employees</h1>
+          <h1 className='c-heading c-heading--level1 c-heading--white'>Employees</h1>
     
-        <Employees employees={employees} showSelectedEmployee={showSelectedEmployeeHandler}/>
-        <div className='t-post-list'>
-        <button onClick={saveEmployeeHandler} className='c-btn c-btn--accent'>Save Employee</button>
-        <span className="t-post-list__divider">OR</span>
-        <button onClick={deleteEmployeeHandler} className='c-btn c-btn--outline'>Delete Employee</button>
-          </div>
-          </div>
+          <Employees employees={employees} showSelectedEmployee={showSelectedEmployeeHandler}/>
+            <div className='t-post-list'>
+              <button onClick={saveEmployeeHandler} className='c-btn c-btn--accent'>Save Employee</button>
+              <span className="t-post-list__divider">OR</span>
+              <button onClick={deleteEmployeeHandler} className='c-btn c-btn--outline'>Delete Employee</button>
+            </div>
+          </section>
         </main>
         // W propsach przekazywana jest metoda showSelectedEmployeeHandler nazwa propsa to: 'showSelectedEmployee' 
         // metoda showSelectedEmployeeHandler przekazywana jest do komponentu employees
