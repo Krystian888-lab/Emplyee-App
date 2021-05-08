@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 function useFetch(uri) {
-  // const [data, setData] = useState();
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState([]);
+
+  const [error, setError] = useState(); // Obiekt error, dla monitorowania błedów
+  const [loading, setLoading] = useState(false);
+  // Gdy żądanie ma status w toku w elemencie h1 wyświetlany jest jest komunikat wczytywanie
 
   useEffect(() => {
     if (!uri) return;

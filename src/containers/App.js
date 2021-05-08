@@ -6,10 +6,13 @@ import EmployeeDetails from '../components/Employees/EmployeeDetails/EmployeeDet
 
 const App = () => {
   // Zaczep useState służy do przechowywania odpowiedzi w danych 
-  const [employees, setEmployees] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
+  
+  const [employees, setEmployees] = useState([]);
 
-  const [error, setError] = useState();
+  const [error, setError] = useState(); // Obiekt error, dla monitorowania błedów
+  const [loading, setLoading] = useState(false);
+  // Gdy żądanie ma status w toku w elemencie h1 wyświetlany jest jest komunikat wczytywanie
   
   // w SelectedEmployee przechowywana jest informacja o jednym konkretnym pracowniku, dopóki żaden nie zostanie wybrany będzie wyświetlany 'null'
 
@@ -38,12 +41,15 @@ const App = () => {
             setEmployees(employeeArray);
             // Teraz pracownicy z  początkowego stanu tablicy 'useState' employees -> zostają przypsiani do stałej employeeArray
           })
+          .then(()=> setLoading(false))
           .catch(setError)
           .catch(error => console.log(error))
         
         }, []);
 
-        if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
+        if (loading) return <h1>loading...</h1>;
+        if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
+        if(!employees) return null;
         
   // Metoda która będzie się wywoływała po wciśnięciu jednego pracownika (wciśnięciu jednego przycisku), przekazywane jest do niej id bo endpoint wymaga id
   const showSelectedEmployeeHandler = (id) => {

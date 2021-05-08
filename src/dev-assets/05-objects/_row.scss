@@ -7,6 +7,7 @@
   // dodanie ujemnych marginesów
   margin-left: -$gutter; // aby zrekompensować padding dwóch skarjnych kolumn w wwierszu
   margin-right: -$gutter; // ~ '-15px' w wyjściowym css
+  list-style-type: none;
   
   // mixin umożliwi umiszczenie jednej kolumny obok drugiej w odi poziomej
   @include medium-up {
