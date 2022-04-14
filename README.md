@@ -80,10 +80,10 @@ List of features ready and TODOs for future development
 - Adding quick buttons
 - Optimisation
 
-
 ## Acknowledgements
 
-My person adopted asynchronous javascript, inspired by "https://jsonplaceholder.typicode.com/" thanks to which I worked on Fetch API
+ -My person adopted asynchronous javascript, inspired by "https://jsonplaceholder.typicode.com/" thanks to which I worked on Fetch API
+- Many thanks to lecturer Ksawery Kargól from "strefakursow.pl" on course "Kurs Programowanie asynchroniczne w JavaScript"
 
 ## Contact
 
