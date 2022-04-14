@@ -2,51 +2,9 @@
 
 > Final defense project
 
-## Table of contents
-
-* [General info](#general-info)
-* [Screenshots](#screenshots)
-* [Technologies Used](#technologies-used)
-* [Features](#features)
-* [Setup](#setup)
-* [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
-
-## General info
-
-The aim of the project is to create service for the test rest server <br /> 
-that will communicate with endpoints, to the appropriate paths by sending GET, POST, PUT, DELETE requests, 
-<br />it will receive a JSON list of employees from the application level, 
-<br />using the Fetch API interface
-
-## Screenshots
-
-![Main Page](././src/images/main_page.png)
-![Employee Handler](././src/images/employee_handler.png)
-![Save-Delete Handler](././src/images/save-delete_handler.png)
-![Employee](././src/images/employee.png)
-
-## Technologies Used
-
-- JavaScript
-- HTML 5.1
-- SASS
-- Block Element Modifier (BEM)
-- Reset file
-- Adobe XD
-- ITCSS (organizational issues, layered structure)
-- Responsive web design
-
-## Features
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-
-https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc?hl=pl rozszerzenie dozainstalowania
 
 In the project directory, you can run:
 
